@@ -74,6 +74,17 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
+DATABASES={
+    'default':{
+        'ENGINE':'django.db.backends.mysql',
+        'NAME':'mysite', #database name
+        'USER':'blog',
+        'PASSWORD':'blog',
+        'HOST':'127.0.0.1',
+        'PORT':'3306',
+    }
+}
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -82,26 +93,26 @@ DATABASES = {
     }
 }
 
-# ENGINE
-# Default: '' (Empty string)
-# The database backend to use. The built-in database backends are:
+ENGINE
+Default: '' (Empty string)
+The database backend to use. The built-in database backends are:
 
-# 'django.db.backends.postgresql_psycopg2'
-# 'django.db.backends.mysql'
-# 'django.db.backends.sqlite3'
-# 'django.db.backends.oracle'
-#eg.
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'mydatabase',
-#         'USER': 'mydatabaseuser',
-#         'PASSWORD': 'mypassword',
-#         'HOST': '127.0.0.1',
-#         'PORT': '5432',
-#     }
-# }
-
+'django.db.backends.postgresql_psycopg2'
+'django.db.backends.mysql'
+'django.db.backends.sqlite3'
+'django.db.backends.oracle'
+eg.
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'mydatabase',
+        'USER': 'mydatabaseuser',
+        'PASSWORD': 'mypassword',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
+}
+'''
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
