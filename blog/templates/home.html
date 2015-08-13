@@ -1,7 +1,7 @@
 {% if Entries %}
 	{% for entry in Entries %}
 	<ul>
-		<li><a href="{{ entry.slug }}">{{ entry.title }}</a></li>
+		<li><a href="{% url 'blog:entry' entry.slug %}">{{ entry.title }}</a></li>
 		<p>{{ entry.markdown }}</p>
 		<P>{{ entry.published }}</P>
 		<P>{{ entry.updated }}</P>

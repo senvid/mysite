@@ -21,8 +21,8 @@ def home(request):
 
 def entry(request, entries_slug):
     try:
-    	article = entries.objects.get(slug=entries_slug)
-    except Exception, e:
+    	article = entries.objects.filter(slug=entries_slug)
+    except Exception:
     	raise Http404("Nothing here.")
     return render(request, "home.html", {'Entries': article})
 
