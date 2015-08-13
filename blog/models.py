@@ -11,9 +11,11 @@ class entries(models.Model):
     markdown = models.TextField()
     html = models.TextField()
     published = models.DateField()
-    updated = models.DateTimeField()
+    updated = models.DateTimeField(auto_now=True)
 
-class blogAdmin(admin.ModelAdmin):
-	list_display = ("slug","title","published","updated")
+    def __unicode__(self):
+        return self.title
+
+
 		
 
