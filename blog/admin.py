@@ -3,14 +3,17 @@ from django.contrib import admin
 # Register your models here.
 from blog.models import entries
 
+
 class blogAdmin(admin.ModelAdmin):
     fieldsets = [
-    	("TITLE",{"fields":["title"]}),
-    	("HTML",{"fields":["html"]}),
-    	("published",{"fields:["published"]})
-    	]
+        ("TITLE", {"fields": ["title"]}),
+        ("HTML", {"fields": ["html"]}),
+        ("published", {"fields": ["published"]})
+    ]
 
-	#list_display = ("title","published","updated")
+    list_display = ("slug","title", "published", "updated")
 
+    list_filter = ["published"]
+    search_fields = ["title"]
 
-admin.site.register(entries,blogAdmin)
+admin.site.register(entries, blogAdmin)

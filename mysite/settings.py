@@ -56,7 +56,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'mysite',  # database name
         'USER': 'blog',
         'PASSWORD': 'blog',
-        'HOST': '127.0.0.1',
+        'HOST': '192.168.20.10',
         'PORT': '3306',
         'charset': 'utf8'
     }

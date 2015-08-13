@@ -1,0 +1,12 @@
+{% if Entries %}
+	{% for entry in Entries %}
+	<ul>
+		<li><a href="{{ entry.slug }}">{{ entry.title }}</a></li>
+		<p>{{ entry.markdown }}</p>
+		<P>{{ entry.published }}</P>
+		<P>{{ entry.updated }}</P>
+	</ul>
+	{% endfor %}
+{% else %}
+	<p> No Entry yet~~</p>	
+{% endif %}
