@@ -1,12 +1,51 @@
-{% if Entries %}
-	{% for entry in Entries %}
-	<ul>
-		<li><a href="{% url 'blog:entry' entry.slug %}">{{ entry.title }}</a></li>
-		<p>{{ entry.markdown }}</p>
-		<P>{{ entry.published }}</P>
-		<P>{{ entry.updated }}</P>
-	</ul>
-	{% endfor %}
-{% else %}
-	<p> No Entry yet~~</p>	
-{% endif %}
+{% extends "base.html" %}
+
+{% block body %}
+
+{% for entry in Entries %}
+<article class="article">
+    <div class="entry">
+        <h1><a href="{% url 'blog:entry' entry.slug %}">{{ entry.title }}</a></h1>
+        <div class="text">
+            <!-- <p>{{ entry.markdown }}</p> -->
+            <p>{{ entry.html }}</p>
+        </div>
+        <div class="date">
+            <P>{{ entry.published }}</P>
+            <P>{{ entry.updated }}</P>
+        </div>
+        <div class="clear"></div>
+    </div>
+</article>
+{% endfor%}
+<!-- 	<input id ="sumPage" type="hidden" value={{ sumPage }} /> -->
+<div id="entry_list">
+</div>
+{% endblock %} 
+<!-- {% block bottom %}
+<script type="text/javascript">
+$(document).ready(function() {
+    var onPage = geturlargs();
+    if (!onPage) onPage = 1;
+    var sumPage = parseInt($("#sumPage").val());
+    AreaBuild(onPage, sumPage);
+
+    function geturlargs() {
+        var url = window.location.search;
+        if (url.indexOf("?") == 0) {
+            var url_str = url.substr(1).split("=");
+            var url_args = url_str[1]
+        };
+        return url_args
+    }
+    /*
+    		$("#entry_list").on("click","a",function(){
+    			var pageNum = parseInt($(this).text());
+    			onPage = pageNum;
+    			var send_data = $.param({ page_num:pageNum});
+    			queryPageNum(pageNum,send_data,sumPage,onPage);
+    		});
+    */
+});
+</script>
+{% endblock %} -->

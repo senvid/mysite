@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+   <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html" /> 
+    <title>blog</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static "css/blog.css" %}" type="text/css" />
+        {% block head %}
+        {% endblock %}
+    <script type="text/javascript" src="{% static "js/jquery-2.1.1.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/jquery.scrollTo-1.1.13.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/web.js" %}"></script>
+</head>
+
+<body>
+
+
+<div id="header-wrap" class="outer">
+    <header class="inner">
+        <nav>
+            <a href="/">home</a>   
+            <a href="/archive">archive</a>   
+            <a href="/about">about</a>
+            <a href="/test">test</a>  
+        </nav>
+    </header>
+</div>
+
+
+<div id="main-wrap">
+    <div id="section-wrap" class="outer">   
+        <section class="inner">
+            {% block body %}
+                {% endblock %}
+        </section>
+    </div>
+
+    <div id="aside-wrap" class="outer">
+        <aside id="aside" class="inner">
+            <div class="news">            
+                <ul class="rank">
+                    <li id="top_li"><p>最新文章</p></li>
+                    <li><p>收藏</p></li>
+                    <li><a href="https://appengine.google.com/">GAE</a></li>
+                    <li><a href="https://github.com">github</a></li>
+                </ul>
+            </div>
+        </aside>
+        <div id="side"></div>
+    </div>   
+</div>
+
+
+<div id="gotop">
+    <div id="arrow"></div>
+    <div class="word">TOP</div>
+</div>
+
+<div id="footer-wrap">
+    <footer id="footer">
+        <small>Powered by <a href="http://www.tornadoweb.org/">tornado</a> | senvid.</small>
+    </footer>
+</div>
+
+
+{% block bottom %}
+{% endblock %}
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        setFooter();
+        $(window).resize(setFooter);
+
+       
+        asideGet();
+        //
+        mouse_over_out();
+        //
+        show_hide_scroll("#header-wrap","#gotop");
+    });
+    //   
+</script>
+
+<link rel="stylesheet" href="{% static "css/shCore.css" %}" type="text/css" />
+<link rel="stylesheet" href="{% static "css/shThemeDefault.css" %}" type="text/css" />
+<script src="{% static "js/shCore.js" %}"></script>
+<script src="{% static "js/shAutoloader.js" %}"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.autoloader(
+        'bash shell             {% static "js/shBrush/shBrushBash.js" %}',
+        'cpp c                  {% static "js/shBrush/shBrushCpp.js" %}',
+        'c# c-sharp csharp      {% static "js/shBrush/shBrushCSharp.js" %}',
+        'css                    {% static "js/shBrush/shBrushCss.js" %}',
+        'java                   {% static "js/shBrush/shBrushJava.js" %}',
+        'js jscript javascript  {% static "js/shBrush/shBrushJScript.js" %}',
+        'php                    {% static "js/shBrush/shBrushPhp.js" %}',
+        'py python              {% static "js/shBrush/shBrushPython.js" %}',
+        'sql                    {% static "js/shBrush/shBrushSql.js" %}',
+        'xml xhtml xslt html    {% static "js/shBrush/shBrushXml.js" %}'
+    );
+     
+    SyntaxHighlighter.all();
+</script>
+
+</body>
+</html>

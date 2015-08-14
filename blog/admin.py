@@ -11,7 +11,7 @@ class blogAdmin(admin.ModelAdmin):
         ("published", {"fields": ["published"]})
     ]
 
-    list_display = ("slug","title", "published", "updated")
+    list_display = ("slug", "title", "published", "updated")
 
     list_filter = ["published"]
     search_fields = ["title"]
