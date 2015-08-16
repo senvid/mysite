@@ -2,17 +2,18 @@
 
 {% block body %}
 
+
 {% for entry in Entries %}
 <article class="article">
     <div class="entry">
         <h1><a href="{% url 'blog:entry' entry.slug %}">{{ entry.title }}</a></h1>
         <div class="text">
-            <!-- <p>{{ entry.markdown }}</p> -->
-            <p>{{ entry.html }}</p>
+        {% load mark %}
+            <p>{{ entry.markdown|my_markdown|safe }}</p>
+
         </div>
         <div class="date">
             <P>{{ entry.published }}</P>
-            <P>{{ entry.updated }}</P>
         </div>
         <div class="clear"></div>
     </div>

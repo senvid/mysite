@@ -7,7 +7,7 @@ from blog.models import entries
 class blogAdmin(admin.ModelAdmin):
     fieldsets = [
         ("TITLE", {"fields": ["title"]}),
-        ("HTML", {"fields": ["html"]}),
+        ("MARKDOWN", {"fields": ["markdown"]}),
         ("published", {"fields": ["published"]})
     ]
 
